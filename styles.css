@@ -500,3 +500,85 @@ html { scroll-padding-top: 96px; -webkit-text-size-adjust: 100%; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
   .has-js .reveal { opacity: 1; transform: none; }
 }
+
+/* Credentials */
+.credentials { padding-top: clamp(110px, 11vw, 180px); }
+.credential-grid {
+  display: grid;
+  grid-template-columns: 1.25fr .75fr;
+  gap: 14px;
+  margin-top: 28px;
+}
+.credential-card {
+  min-height: 320px;
+  padding: 28px;
+  border: 1px solid rgba(18,18,18,.12);
+  border-radius: var(--radius);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.credential-card-featured {
+  grid-row: span 2;
+  min-height: 654px;
+  background: var(--dark);
+  color: #f5f5f5;
+}
+.credential-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font: 600 10px/1 "DM Mono", monospace;
+  letter-spacing: .06em;
+  opacity: .62;
+}
+.credential-meta {
+  margin: 0 0 12px;
+  font: 600 10px/1.3 "DM Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  opacity: .62;
+}
+.credential-card h3 {
+  margin: 0;
+  max-width: 760px;
+  font-size: clamp(30px, 3vw, 54px);
+  line-height: 1.02;
+  letter-spacing: -.055em;
+}
+.credential-card:not(.credential-card-featured) h3 {
+  font-size: clamp(27px, 2.35vw, 40px);
+}
+.credential-card p:not(.credential-meta) {
+  margin: 18px 0 0;
+  max-width: 620px;
+  color: #55534e;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.credential-card-featured p:not(.credential-meta) { color: rgba(255,255,255,.68); }
+.credential-link {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid currentColor;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+@media (max-width: 1000px) {
+  .credential-grid { grid-template-columns: 1fr 1fr; }
+  .credential-card-featured { grid-column: 1 / 3; grid-row: auto; min-height: 430px; }
+}
+
+@media (max-width: 760px) {
+  .credentials { padding-top: 90px; }
+  .credential-grid { grid-template-columns: 1fr; gap: 10px; }
+  .credential-card-featured { grid-column: auto; min-height: 390px; }
+  .credential-card { min-height: 250px; padding: 22px; }
+  .credential-card h3,
+  .credential-card:not(.credential-card-featured) h3 { font-size: clamp(30px, 9vw, 42px); }
+}
